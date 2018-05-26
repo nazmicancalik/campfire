@@ -40,11 +40,24 @@ clear.addEventListener("click", () => {
 // Listen for eventss
 socket.on("chat", data => {
   output.innerHTML +=
-    "<p><strong>" + data.handle + ":</strong> " + data.message + "</p>";
+    "<p><strong>" +
+    data.handle +
+    ":</strong> " +
+    escapeHtml(data.message) +
+    "</p>";
   feedback.innerHTML = "";
   chatWindow.scrollTop = chatWindow.scrollHeight;
 });
 
 socket.on("typing", data => {
-  feedback.innerHTML = "<p><em>" + data + " is typing... </em></p>";
+  feedback.innerHTML = "<p><em>" + escapeHtml(data) + " is typing... </em></p>";
 });
+
+function escapeHtml(unsafe) {
+  return unsafe
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+}

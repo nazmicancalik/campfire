@@ -4,7 +4,7 @@ const socket = require("socket.io");
 var app = express();
 
 // process.env.PORT lets the port be set by Heroku
-var port = process.env.PORT || 8080;
+var port = process.env.PORT || 3000;
 
 var server = app.listen(port, () => {
   console.log("Listening to requests on port", port);
