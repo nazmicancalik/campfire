@@ -8,6 +8,10 @@ h2 {
   color: #575ed8;
 }
 
+#video {
+  padding-top: 50px;
+}
+
 #nomad-chat {
   max-width: 600px;
   margin: 30px auto;
@@ -16,8 +20,12 @@ h2 {
   border-radius: 3px;
 }
 
+#chat {
+  margin-top: 20px;
+}
+
 #chat-window {
-  height: 400px;
+  height: 600px;
   overflow: auto;
   background: #f9f9f9;
 }
@@ -37,6 +45,10 @@ h2 {
 
 #output strong {
   color: #575ed8;
+}
+
+#clear {
+  margin-top: 5px;
 }
 
 label {

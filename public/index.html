@@ -11,16 +11,25 @@
 </head>
 
 <body>
-  <div class="jumbotron">
-    <div id="nomad-chat">
-      <div id="chat-window">
-        <div id="output"></div>
-        <div id="feedback"></div>
+  <div class="container-fluid" style="padding-right:25px; padding-left:25px;">
+    <div class="row">
+
+      <div class="col-md-8" id="video">
+        <!--<iframe width=100%; height=97% src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe>-->
+        <div style="position:relative;height:97%;padding-bottom:56.21%"><iframe src="https://www.youtube.com/embed/twcOr043i4k?ecver=2" style="position:absolute;width:100%;height:100%;left:0" width="641" height="360" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></div>
       </div>
-      <input type="text" id="handle" name="handle" placeholder="Handle">
-      <input type="text" id="message" placeholder="Enter your message here">
-      <button id="send" name="btn">Send</button>
-      <button id="clear" style="background: red;" name="btn">Clear Chat Logs</button>
+      <div class="col-md-4" id="chat">
+        <div id="nomad-chat">
+          <div id="chat-window">
+            <div id="output"></div>
+            <div id="feedback"></div>
+          </div>
+          <input type="text" id="handle" name="handle" placeholder="Handle">
+          <input type="text" id="message" placeholder="Enter your message here">
+          <button id="send" name="btn">Send</button>
+          <button id="clear" style="background: #F22613; opacity:0.9;" name="btn">Clear Chat Logs</button>
+        </div>
+      </div>
     </div>
   </div>
   <script type="text/javascript" src="chat.js">
