@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Chat</title>
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js">
+  </script>
+</head>
+
+<body>
+  <div class="jumbotron">
+    <div id="nomad-chat">
+      <div id="chat-window">
+        <div id="output"></div>
+        <div id="feedback"></div>
+      </div>
+      <input type="text" id="handle" name="handle" placeholder="Handle">
+      <input type="text" id="message" placeholder="Enter your message here">
+      <button id="send" name="btn">Send</button>
+      <button id="clear" style="background: red;" name="btn">Clear Chat Logs</button>
+    </div>
+  </div>
+  <script type="text/javascript" src="chat.js">
+  </script>
+</body>
+
+</html>
