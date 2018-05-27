@@ -1,6 +1,6 @@
 // Make Connection
-var socket = io.connect("https://boun-chat.herokuapp.com?id=2");
-//var socket = io.connect("http://localhost:3000/");
+//var socket = io.connect("https://boun-chat.herokuapp.com?id=2");
+var socket = io.connect("http://localhost:3000/");
 
 // Query Dom
 var chatWindow = document.getElementById("chat-window");
@@ -63,10 +63,9 @@ socket.on("typing", data => {
 });
 
 socket.on("videoChange", data => {
-  console.log(videoFrame.src);
   videoBox.innerHTML =
     '<iframe id="videoFrame" src="' +
-    videoFrame.src +
+    data +
     '" style="position:absolute;width:100%;height:100%;left:0" width="641" height="360" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>';
 });
 
