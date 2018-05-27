@@ -1,6 +1,6 @@
 // Make Connection
-var socket = io.connect("https://boun-chat.herokuapp.com?id=2");
-//var socket = io.connect("http://localhost:3000/");
+//var socket = io.connect("https://boun-chat.herokuapp.com?id=2");
+var socket = io.connect("http://localhost:3000/");
 
 // Query Dom
 var chatWindow = document.getElementById("chat-window");
@@ -33,7 +33,11 @@ message.addEventListener("keypress", e => {
 
 youtubeUrl.addEventListener("keypress", e => {
   if (e.keyCode == 13) {
-    socket.emit("videoChange", youtubeUrl.value);
+    id = getYoutubeId(youtubeUrl.value);
+    if (id !== "") {
+      video = "https://www.youtube.com/embed/" + id + "?autoplay=1";
+      socket.emit("videoChange", video);
+    }
     youtubeUrl.value = "";
   }
 });
@@ -76,4 +80,18 @@ function escapeHtml(unsafe) {
     .replace(/>/g, "&gt;")
     .replace(/"/g, "&quot;")
     .replace(/'/g, "&#039;");
+}
+
+function getYoutubeId(url) {
+  var ID = "";
+  url = url
+    .replace(/(>|<)/gi, "")
+    .split(/(vi\/|v=|\/v\/|youtu\.be\/|\/embed\/)/);
+  if (url[2] !== undefined) {
+    ID = url[2].split(/[^0-9a-z_\-]/i);
+    ID = ID[0];
+  } else {
+    ID = url;
+  }
+  return ID;
 }
