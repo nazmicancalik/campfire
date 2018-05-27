@@ -1,6 +1,6 @@
 // Make Connection
-//var socket = io.connect("https://boun-chat.herokuapp.com?id=2");
-var socket = io.connect("http://localhost:3000/");
+var socket = io.connect("https://boun-chat.herokuapp.com?id=2");
+//var socket = io.connect("http://localhost:3000/");
 
 // Query Dom
 var chatWindow = document.getElementById("chat-window");
