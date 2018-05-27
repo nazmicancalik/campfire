@@ -21,11 +21,18 @@ io.on("connection", socket => {
 
   // Handle chat event
   socket.on("chat", data => {
+    console.log("Chat emitted");
     io.sockets.emit("chat", data);
   });
 
   // Handle typing event
   socket.on("typing", data => {
     socket.broadcast.emit("typing", data);
+  });
+
+  //Handle Video changed event
+  socket.on("videoChange", data => {
+    console.log("Video Changed event emitted");
+    io.sockets.emit("videoChange", data);
   });
 });

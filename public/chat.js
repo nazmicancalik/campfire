@@ -1,5 +1,6 @@
 // Make Connection
 var socket = io.connect("https://boun-chat.herokuapp.com?id=2");
+//var socket = io.connect("http://localhost:3000/");
 
 // Query Dom
 var chatWindow = document.getElementById("chat-window");
@@ -9,6 +10,8 @@ var btn = document.getElementById("send");
 var output = document.getElementById("output");
 var feedback = document.getElementById("feedback");
 var clear = document.getElementById("clear");
+var youtubeUrl = document.getElementById("youtubeUrl");
+var videoBox = document.getElementById("videoBox");
 
 // Emit events
 btn.addEventListener("click", () => {
@@ -22,10 +25,16 @@ btn.addEventListener("click", () => {
 message.addEventListener("keypress", e => {
   console.log("Cool");
   socket.emit("typing", handle.value);
-
   if (e.keyCode == 13) {
     btn.click();
     message.value = "";
+  }
+});
+
+youtubeUrl.addEventListener("keypress", e => {
+  if (e.keyCode == 13) {
+    socket.emit("videoChange", youtubeUrl.value);
+    youtubeUrl.value = "";
   }
 });
 
@@ -51,6 +60,14 @@ socket.on("chat", data => {
 
 socket.on("typing", data => {
   feedback.innerHTML = "<p><em>" + escapeHtml(data) + " is typing... </em></p>";
+});
+
+socket.on("videoChange", data => {
+  console.log(videoFrame.src);
+  videoBox.innerHTML =
+    '<iframe id="videoFrame" src="' +
+    videoFrame.src +
+    '" style="position:absolute;width:100%;height:100%;left:0" width="641" height="360" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>';
 });
 
 function escapeHtml(unsafe) {

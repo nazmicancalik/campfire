@@ -13,6 +13,19 @@ h2 {
   padding-top: 25px;
 }
 
+#youtubeUrl {
+  font-size: 18px;
+  margin-right: 100px;
+  color: black;
+  border-radius: 3px;
+  background-color: #ABB7B7;
+}
+
+#urlBar {
+  padding-top: 5px;
+  height: 100%;
+}
+
 #nomad-chat {
   max-width: 600px;
   margin: 30px auto;
