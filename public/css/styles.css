@@ -34,11 +34,6 @@ h2 {
   border-radius: 3px;
 }
 
-/*
-#chat {
-  margin-top: 20px;
-}*/
-
 #chat-window {
   height: 600px;
   overflow: auto;
