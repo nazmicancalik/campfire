@@ -1,6 +1,6 @@
 body {
-  font-family: 'Nunito';
-  background-color: #95A5A6;
+  font-family: "Nunito";
+  background-color: #95a5a6;
 }
 
 h2 {
@@ -18,7 +18,7 @@ h2 {
   margin-right: 100px;
   color: black;
   border-radius: 3px;
-  background-color: #ABB7B7;
+  background-color: #abb7b7;
 }
 
 #urlBar {
@@ -40,12 +40,20 @@ h2 {
   background: #f9f9f9;
 }
 
+#single-message {
+  padding: 14px;
+  margin: 0 20px;
+  border-bottom: 1px solid #e9e9e9;
+  color: #555;
+}
+
+/*
 #output p {
   padding: 14px 0px;
   margin: 0 20px;
   border-bottom: 1px solid #e9e9e9;
   color: #555;
-}
+} */
 
 #feedback p {
   color: #aaa;

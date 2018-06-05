@@ -1,6 +1,6 @@
 // Make Connection
-var socket = io.connect("https://boun-chat.herokuapp.com?id=2");
-//var socket = io.connect("http://localhost:3000/");
+//var socket = io.connect("https://boun-chat.herokuapp.com?id=2");
+var socket = io.connect("http://localhost:3000/");
 
 // Query Dom
 var chatWindow = document.getElementById("chat-window");
@@ -23,7 +23,6 @@ btn.addEventListener("click", () => {
 });
 
 message.addEventListener("keypress", e => {
-  console.log("Cool");
   socket.emit("typing", handle.value);
   if (e.keyCode == 13) {
     btn.click();
@@ -50,20 +49,32 @@ clear.addEventListener("click", () => {
   output.innerHTML = "<p></p>";
 });
 
-// Listen for eventss
+//TODO
+// Listen for events
 socket.on("chat", data => {
   output.innerHTML +=
-    "<p><strong>" +
+    "<div id='single-message'><div class='row'><div class='col-md-10'><p><strong>" +
     data.handle +
-    ":</strong> " +
-    escapeHtml(data.message) +
-    "</p>";
+    ": </strong>" +
+    data.message +
+    "</p></div><div class='col-md-2'><em><font size='1'>" +
+    data.time +
+    "</font></em></div></div></div>";
+  /*
+    "<div class='row'><div class='col-md-10'><p><strong>" +
+    data.handle +
+    ": </strong>" +
+    data.message +
+    "</p></div><div class='col-md-2'><em><font size='1'>" +
+    data.time +
+    "</font></em></div></div>";*/
   feedback.innerHTML = "";
   chatWindow.scrollTop = chatWindow.scrollHeight;
 });
 
 socket.on("typing", data => {
   feedback.innerHTML = "<p><em>" + escapeHtml(data) + " is typing... </em></p>";
+  chatWindow.scrollTop = chatWindow.scrollHeight;
 });
 
 socket.on("videoChange", data => {
