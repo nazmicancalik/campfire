@@ -49,7 +49,6 @@ clear.addEventListener("click", () => {
   output.innerHTML = "<p></p>";
 });
 
-//TODO
 // Listen for events
 socket.on("chat", data => {
   output.innerHTML +=
@@ -58,7 +57,7 @@ socket.on("chat", data => {
     ": </strong>" +
     escapeHtml(data.message) +
     "</p></div><div class='col-md-2'><em><font size='1'>" +
-    data.time +
+    moment(data.time).format("H:mm:s") +
     "</font></em></div></div></div>";
   feedback.innerHTML = "";
   chatWindow.scrollTop = chatWindow.scrollHeight;

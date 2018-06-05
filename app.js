@@ -1,6 +1,6 @@
 const express = require("express");
 const socket = require("socket.io");
-const moment = require("moment");
+var moment = require("moment");
 
 var app = express();
 
@@ -22,7 +22,7 @@ io.on("connection", socket => {
 
   // Handle chat event
   socket.on("chat", data => {
-    data.time = moment().format("HH:MM:SS");
+    data.time = moment().valueOf();
     io.sockets.emit("chat", data);
   });
 
