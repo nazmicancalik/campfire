@@ -1,6 +1,6 @@
 // Make Connection
-//var socket = io.connect("https://boun-chat.herokuapp.com?id=2");
-var socket = io.connect("http://localhost:3000/");
+var socket = io.connect("https://boun-chat.herokuapp.com?id=2");
+//var socket = io.connect("http://localhost:3000/");
 
 // Query Dom
 var chatWindow = document.getElementById("chat-window");
@@ -54,20 +54,12 @@ clear.addEventListener("click", () => {
 socket.on("chat", data => {
   output.innerHTML +=
     "<div id='single-message'><div class='row'><div class='col-md-10'><p><strong>" +
-    data.handle +
+    escapeHtml(data.handle) +
     ": </strong>" +
-    data.message +
+    escapeHtml(data.message) +
     "</p></div><div class='col-md-2'><em><font size='1'>" +
     data.time +
     "</font></em></div></div></div>";
-  /*
-    "<div class='row'><div class='col-md-10'><p><strong>" +
-    data.handle +
-    ": </strong>" +
-    data.message +
-    "</p></div><div class='col-md-2'><em><font size='1'>" +
-    data.time +
-    "</font></em></div></div>";*/
   feedback.innerHTML = "";
   chatWindow.scrollTop = chatWindow.scrollHeight;
 });
@@ -102,7 +94,7 @@ function getYoutubeId(url) {
     ID = url[2].split(/[^0-9a-z_\-]/i);
     ID = ID[0];
   } else {
-    ID = url;
+    ID = "EL_pBJN_O3M";
   }
   return ID;
 }
