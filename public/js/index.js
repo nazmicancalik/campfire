@@ -1,6 +1,7 @@
 // Make Connection
-var socket = io.connect("https://boun-chat.herokuapp.com?id=2");
+//var socket = io.connect("https://boun-chat.herokuapp.com?id=2");
 //var socket = io.connect("http://localhost:3000/");
+var socket = io();
 
 // Query Dom
 var chatWindow = document.getElementById("chat-window");
@@ -73,6 +74,14 @@ socket.on("videoChange", data => {
     '<iframe id="videoFrame" src="' +
     data +
     '" style="position:absolute;width:100%;height:100%;left:0" width="641" height="360" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>';
+});
+
+socket.on("connect", function() {
+  console.log("Connected to server");
+});
+
+socket.on("disconnect", function() {
+  console.log("Disconnected from server");
 });
 
 function escapeHtml(unsafe) {
