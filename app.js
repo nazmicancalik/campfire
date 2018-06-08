@@ -4,6 +4,8 @@ const express = require("express");
 const socketIO = require("socket.io");
 var moment = require("moment");
 
+var onlineCount = 0;
+
 //Static path
 const publicPath = path.join(__dirname, "/public");
 
@@ -20,6 +22,8 @@ app.use(express.static(publicPath));
 
 io.on("connection", socket => {
   console.log("New user is connected", socket.id);
+  onlineCount++;
+  io.sockets.emit("onlineCount", onlineCount);
 
   // Handle chat event
   socket.on("chat", data => {
@@ -39,7 +43,13 @@ io.on("connection", socket => {
     io.sockets.emit("videoChange", data);
   });
 
+  socket.on("onlineCount", data => {
+    onlineCount = data;
+  });
+
   socket.on("disconnect", () => {
+    onlineCount--;
+    socket.broadcast.emit("onlineCount", onlineCount);
     console.log("User was disconnected");
   });
 });

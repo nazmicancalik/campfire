@@ -13,6 +13,7 @@ var feedback = document.getElementById("feedback");
 var clear = document.getElementById("clear");
 var youtubeUrl = document.getElementById("youtubeUrl");
 var videoBox = document.getElementById("videoBox");
+var online = document.getElementById("onlineCount");
 
 // Emit events
 btn.addEventListener("click", () => {
@@ -74,6 +75,10 @@ socket.on("videoChange", data => {
     '<iframe id="videoFrame" src="' +
     data +
     '" style="position:absolute;width:100%;height:100%;left:0" width="641" height="360" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>';
+});
+
+socket.on("onlineCount", function(data) {
+  online.innerHTML = data;
 });
 
 socket.on("connect", function() {
