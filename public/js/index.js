@@ -15,6 +15,23 @@ var youtubeUrl = document.getElementById("youtubeUrl");
 var videoBox = document.getElementById("videoBox");
 var online = document.getElementById("onlineCount");
 
+// Video Element
+var localVideo = document.getElementById('l-video');
+var remoteVideo = document.getElementById('r-video');
+
+
+// Config for webrtc
+var rtcOpts = {
+  room: 'test-room',
+  signaller: 'https://switchboard.rtc.io'
+};
+
+// Rtc object
+var rtc = RTC(rtcOpts);
+
+localVideo.appendChild(rtc.local);
+remoteVideo.appendChild(rtc.remote);
+
 // Emit events
 btn.addEventListener("click", () => {
   socket.emit("chat", {
