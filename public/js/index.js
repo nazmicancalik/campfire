@@ -28,11 +28,11 @@ var rtcOpts = {
 
 // Rtc object
 var rtc = RTC(rtcOpts);
-rtc.on('ready', init);
+
 localVideo.appendChild(rtc.local);
 remoteVideo.appendChild(rtc.remote);
 
-
+rtc.on('ready', init);
 // Emit events
 btn.addEventListener("click", () => {
   socket.emit("chat", {
