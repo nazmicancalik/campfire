@@ -10,7 +10,7 @@ This is a fun app that I created during a leisure time. Don't hesitate to contri
   * One or more predefined.
 * [ ] Styling change, firewatch theme.
 * [x] Add Timestamp to messages
-* [ ] Online users
+* [x] Online users
 * [ ] Youtube Concurrency
 * [x] Close autocomplete in message box
 * [x] Autofocus on the message box
