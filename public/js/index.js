@@ -1,6 +1,4 @@
 // Make Connection
-//var socket = io.connect("https://boun-chat.herokuapp.com?id=2");
-//var socket = io.connect("http://localhost:3000/");
 var socket = io();
 
 // Query Dom
@@ -15,24 +13,6 @@ var youtubeUrl = document.getElementById("youtubeUrl");
 var videoBox = document.getElementById("videoBox");
 var online = document.getElementById("onlineCount");
 
-// Video Element
-var localVideo = document.getElementById('l-video');
-var remoteVideo = document.getElementById('r-video');
-
-
-// Config for webrtc
-var rtcOpts = {
-  room: 'test-room',
-  signaller: 'https://switchboard.rtc.io'
-};
-
-// Rtc object
-var rtc = RTC(rtcOpts);
-
-localVideo.appendChild(rtc.local);
-remoteVideo.appendChild(rtc.remote);
-
-rtc.on('ready', init);
 // Emit events
 btn.addEventListener("click", () => {
   socket.emit("chat", {
@@ -42,7 +22,7 @@ btn.addEventListener("click", () => {
   message.value = "";
 });
 
-message.addEventListener("keypress", e => {
+message.addEventListener("keyup", e => {
   socket.emit("typing", handle.value);
   if (e.keyCode == 13) {
     btn.click();

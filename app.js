@@ -47,6 +47,19 @@ io.on("connection", socket => {
     onlineCount = data;
   });
 
+  // WEBRTCPART
+  socket.on('offer', function (id, message) {
+    socket.to(id).emit('offer', socket.id, message);
+  });
+  
+  socket.on('answer', function (id, message) {
+    socket.to(id).emit('answer', socket.id, message);
+  });
+  
+  socket.on('candidate', function (id, message) {
+    socket.to(id).emit('candidate', socket.id, message);
+  });
+
   socket.on("disconnect", () => {
     onlineCount--;
     socket.broadcast.emit("onlineCount", onlineCount);
