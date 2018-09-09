@@ -28,7 +28,6 @@ io.on("connection", socket => {
   // Handle chat event
   socket.on("chat", data => {
     data.time = moment().valueOf();
-    //io.sockets.emit("chat", data);
     io.emit("chat", data);
   });
 
@@ -46,25 +45,7 @@ io.on("connection", socket => {
   socket.on("onlineCount", data => {
     onlineCount = data;
   });
-
-  // WEBRTCPART
-  socket.on('offer', function (id, message) {
-    socket.to(id).emit('offer', socket.id, message);
-  });
   
-  socket.on('answer', function (id, message) {
-    socket.to(id).emit('answer', socket.id, message);
-  });
-  
-  socket.on('candidate', function (id, message) {
-    socket.to(id).emit('candidate', socket.id, message);
-  });
-
-  socket.on("disconnect", () => {
-    onlineCount--;
-    socket.broadcast.emit("onlineCount", onlineCount);
-    console.log("User was disconnected");
-  });
 });
 
 server.listen(port, () => {

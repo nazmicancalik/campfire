@@ -1,5 +1,5 @@
-// Make Connection
-var socket = io();
+// Get the socketconnection 
+var socket = io("http://localhost:3000");
 
 // Query Dom
 var chatWindow = document.getElementById("chat-window");
@@ -37,7 +37,7 @@ youtubeUrl.addEventListener("keypress", e => {
       video = "https://www.youtube.com/embed/" + id + "?autoplay=1";
       socket.emit("videoChange", video);
     }
-    youtubeUrl.value = "";
+    youtubeUrl.value = id;
   }
 });
 

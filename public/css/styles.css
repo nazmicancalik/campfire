@@ -1,6 +1,16 @@
+@import url('https://fonts.googleapis.com/css?family=Audiowide');
+
 body {
   font-family: "Nunito";
   background-color: #95a5a6;
+}
+
+
+label {
+  box-sizing: border-box;
+  display: block;
+  font-family: "Audiowide";
+  padding: 10px 20px;
 }
 
 h2 {
@@ -61,11 +71,6 @@ h2 {
   margin-top: 5px;
 }
 
-label {
-  box-sizing: border-box;
-  display: block;
-  padding: 10px 20px;
-}
 
 input {
   padding: 10px 20px;
