@@ -1,8 +1,11 @@
+/* Imports */
+@import url('https://fonts.googleapis.com/css?family=Titillium+Web');
+
 body {
-	background: url("../img/bg-2.jpg") no-repeat center center fixed;
+	background: url("../img/bg-3.jpg") no-repeat center center fixed;
 	background-size: cover;
 	font-size: 16px;
-	font-family: 'Lato', sans-serif;
+	font-family: 'Titillium Web', sans-serif;
 	font-weight: 300;
 	margin: 0;
 	color: #666;
@@ -10,7 +13,7 @@ body {
 
 /* Typography */
 h1#title {
-	font-family: 'Roboto Slab', serif;
+	font-family: 'Titillium Web', serif;
 	font-weight: 300;
 	font-size: 3.2em;
 	color: white;
@@ -71,7 +74,7 @@ p.small {
 	max-width: 680px;
 	margin: 0 auto;
 	position: relative;
-	top: 120px;
+	top: 200px;
 	padding-bottom: 30px;
 	border-radius: 10px;
 	box-shadow: 0 5px 50px rgba(0,0,0,0.4);
@@ -84,9 +87,16 @@ p.small {
 	padding: 10px 0px;
 	color: white;
 	border-radius: 10px 10px 0 0;
+	text-transform: uppercase;
+	font-weight: 400;
+	letter-spacing: 1px;
+	font-size: 32px;
+	line-height: 1.4em;
+	font-family: 'Titillium Web', serif;
 }
 
 .login-box label {
+	font-family: 'Titillium Web', Times, serif;
 	font-weight: 500;
 	font-size: 22px;
 	color: #888;
@@ -95,7 +105,8 @@ p.small {
 }
 
 .login-box input {
-	margin-bottom: 20px;
+	width: 320px;
+	margin-bottom: 10px;
 	padding: 8px;
 	border: 1px solid #ccc;
 	border-radius: 5px;
@@ -111,9 +122,10 @@ p.small {
 }
 
 .login-box button {
-	margin-top: 0px;
+	font-family: 'Titillium Web', sans-serif;
+	margin-top: 10px;
 	border: 0;
-	border-radius: 2px;
+	border-radius: 3px;
 	color: white;
 	padding: 10px;
 	text-transform: uppercase;
@@ -137,11 +149,15 @@ p.small {
 
 /* Animation Delay */
 #logo {
-  -webkit-animation-duration: 1s;
-  -webkit-animation-delay: 2s;
+	animation-duration: 1s;
+	-webkit-animation-duration: 1s;
+	animation-delay: 2s;
+  	-webkit-animation-delay: 2s;
 }
 
 .login-box {
-  -webkit-animation-duration: 1s;
-  -webkit-animation-delay: 1s;
+	animation-duration: 1s;
+	-webkit-animation-duration: 1s;
+	animation-delay: 1s;
+  	-webkit-animation-delay: 1s;
 }

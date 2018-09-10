@@ -1,15 +1,17 @@
-@import url('https://fonts.googleapis.com/css?family=Audiowide');
+/* Imports */
+@import url('https://fonts.googleapis.com/css?family=Titillium+Web');
 
 body {
-  font-family: "Audiowide";
+  padding-top: 70px;
+  font-family: 'Titillium Web', sans-serif;
   color: white;
-  background: url("../img/bg-2.jpg") no-repeat center center fixed;
+  background-color:gray;
 }
 
 label {
   box-sizing: border-box;
   display: block;
-  font-family: "Audiowide";
+  font-family: 'Titillium Web', sans-serif;
   padding: 10px 20px;
 }
 
@@ -21,6 +23,12 @@ h2 {
 
 #video {
   padding-top: 25px;
+}
+
+#video-box {
+  position:relative;
+  height:90%;
+  padding-bottom:56.21%
 }
 
 #youtubeUrl {
@@ -93,4 +101,9 @@ button {
   padding: 12px 0;
   width: 100%;
   border-radius: 0 0 2px 2px;
+}
+
+.navbar button {
+  padding: 10px;
+  margin: 0 30px;
 }
