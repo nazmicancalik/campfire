@@ -3,12 +3,14 @@
     <head>
         <meta charset="utf-8">
         <title>Join | Campfire</title>
-        <link rel="stylesheet" href="css/styles.css">
+        <link rel="stylesheet" href="css/animate.css">
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide">
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     </head>
-    <body class="centered-form">
-        <div class="centered-form__form">
+    <!--<body class="centered-form">
+        <div class="container">
             <form action="/chat.html">
                 <div class="form-field">
                     <h3>Join a Chat</h3>
@@ -22,9 +24,55 @@
                     <input type="text" name="room" autofocus autocomplete="off"/>
                 </div>
                 <div class="form-field">
-                    <button>Join</button>
+                    <input type="submit" value="Join"/>
                 </div>
             </form>
         </div>
+    </body>-->
+
+    <body>
+        <div class="container">
+            <div class="top">
+                <h1 id="title" class="hidden"><span id="logo">CampFire</span></h1>
+            </div>
+            <div class="login-box animated fadeInUp">
+                <form action="/chat.html">
+                    <div class="box-header">
+                        <h3>Welcome to Campfire</h2>
+                    </div>
+                    <label for="name">Display Name</label>
+                    <br/>
+                    <input type="text" id="name" name="name">
+                    <br/>
+                    <label for="room">Room Name</label>
+                    <br/>
+                    <input type="text" id="room" name="room">
+                    <br/>
+                    <button type="submit">Enter</button>
+                    <br/>
+                    <a href="https://www.github.com/nazmicancalik/boun-chat"><p class="small">Fork me on Github</p></a>
+                </form>
+            </div>
+        </div>
     </body>
+    
+    <script>
+        $(document).ready(function () {
+            $('#logo').addClass('animated fadeInDown');
+            $("input:text:visible:first").focus();
+        });
+        $('#name').focus(function() {
+            $('label[for="name"]').addClass('selected');
+        });
+        $('#name').blur(function() {
+            $('label[for="name"]').removeClass('selected');
+        });
+        $('#room').focus(function() {
+            $('label[for="room"]').addClass('selected');
+        });
+        $('#room').blur(function() {
+            $('label[for="room"]').removeClass('selected');
+        });
+    </script>
+
 </html>

@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+body {
+    background: url("../img/bg-2.jpg") no-repeat center center fixed;
+}
+
+.centered-form {
+    font-family: 'Montserrat';
+    background-color: #659dbd;
+}
+
+.centered-form__form {
+    width: 600px;
+    margin: 0 auto;
+}
+
+.form-field {
+    margin: auto;
+    color: white;
+    padding: 20px 150px;
+}
+
+.form-field > label {
+    width: 600px;
+    font-size: 24px;
+    padding: 20px 0px;
+}
+
+.form-field > input {
+    width: 100%;
+    font-size: 22px;
+    height: 30px;
+    padding: 10px 10px;
+    color: #f2f2f2;
+
+    -webkit-border-radius: 100px;
+    -moz-border-radius: 100px;
+    border-radius: 100px;
+}

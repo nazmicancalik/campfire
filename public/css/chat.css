@@ -2,9 +2,9 @@
 
 body {
   font-family: "Audiowide";
-  background-color: #95a5a6;
+  color: white;
+  background: url("../img/bg-2.jpg") no-repeat center center fixed;
 }
-
 
 label {
   box-sizing: border-box;
