@@ -34,18 +34,19 @@
             <div id="output"></div>
             <div id="feedback"></div>
           </div>
-          <input type="text" id="handle" name="handle" placeholder="Nickname" autofocus autocomplete="off">
           <input type="text" id="message" placeholder="Enter your message here" autocomplete="off">
           <button id="send" class="btn btn-primary btn-lg" name="btn">Send</button>
           <button id="clear" class="btn btn-danger btn-lg" style="background: #F22613; opacity:0.9;" name="btn">Clear Chat Logs</button>
         </div>
       </div>
     </div>
-    <p> <strong>There are currently online :</strong> <em id="onlineCount"></em> </p>
+    <label>Online Users</label>
+    <div id="users"></div>
   </div>
   <script type="text/javascript" src="/socket.io/socket.io.js"></script>
   <script type="text/javascript" src="/js/libs/jquery.js"></script>
   <script type="text/javascript" src="/js/libs/moment.js"></script>
+  <script type="text/javascript" src="/js/libs/deparam.js"></script>
   <script type="text/javascript" src="/js/chat.js"></script>
 </body>
 </html>

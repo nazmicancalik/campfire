@@ -1,34 +1,33 @@
 // Get the socketconnection 
-var socket = io("http://localhost:3000");
+var socket = io();
+
+
+// For development use: 
+// var socket = io("http://localhost:3000");
 
 // Query Dom
 var chatWindow = document.getElementById("chat-window");
 var message = document.getElementById("message");
-var handle = document.getElementById("handle");
 var btn = document.getElementById("send");
 var output = document.getElementById("output");
 var feedback = document.getElementById("feedback");
 var clear = document.getElementById("clear");
 var youtubeUrl = document.getElementById("youtubeUrl");
 var videoBox = document.getElementById("videoBox");
-var online = document.getElementById("onlineCount");
 
 // Emit events
 btn.addEventListener("click", () => {
+  var params = jQuery.deparam(window.location.search);
+
   socket.emit("chat", {
     message: message.value,
-    handle: handle.value
+    username: params.name
   });
+
   message.value = "";
 });
 
-message.addEventListener("keyup", e => {
-  socket.emit("typing", handle.value);
-  if (e.keyCode == 13) {
-    btn.click();
-    message.value = "";
-  }
-});
+
 
 youtubeUrl.addEventListener("keypress", e => {
   if (e.keyCode == 13) {
@@ -53,7 +52,7 @@ clear.addEventListener("click", () => {
 socket.on("chat", data => {
   output.innerHTML +=
     "<div id='single-message'><div class='row'><div class='col-md-10'><p><strong>" +
-    escapeHtml(data.handle) +
+    escapeHtml(data.username) +
     ": </strong>" +
     escapeHtml(data.message) +
     "</p></div><div class='col-md-2'><em><font size='1'>" +
@@ -75,13 +74,39 @@ socket.on("videoChange", data => {
     '" style="position:absolute;width:100%;height:100%;left:0" width="641" height="360" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>';
 });
 
-socket.on("onlineCount", function(data) {
-  online.innerHTML = data;
+socket.on("connect", function() {
+  var params = jQuery.deparam(window.location.search);
+
+  socket.emit('join', params, function(err) {
+    if (err) {
+      // Send to main page
+      alert(err);
+      window.location.href = '/';
+    }else {
+      console.log('No error');
+    }
+  });
+
+  message.addEventListener("keyup", e => {
+    socket.emit("typing", params.name);
+    if (e.keyCode == 13) {
+      btn.click();
+      message.value = "";
+    }
+  });
+
 });
 
-socket.on("connect", function() {
-  console.log("Connected to server");
-});
+socket.on("updateUserList", function(users) {
+  console.log(users);
+  var ol = jQuery('<ol></ol>');
+
+  users.forEach(function (user) {
+    ol.append(jQuery('<li></li>').text(user));
+  });
+
+  jQuery('#users').html(ol);
+})
 
 socket.on("disconnect", function() {
   console.log("Disconnected from server");

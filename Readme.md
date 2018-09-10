@@ -6,8 +6,7 @@ This is a fun app that I created during a leisure time. Don't hesitate to contri
 
 ## TODO
 
-* [ ] Chat rooms
-  * One or more predefined.
+* [x] Chat rooms
 * [ ] Styling change, firewatch theme.
 * [x] Add Timestamp to messages
 * [x] Online users
