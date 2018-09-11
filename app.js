@@ -69,7 +69,7 @@ io.on("connection", socket => {
     var user = users.getUser(socket.id);
 
     console.log("Video Changed event emitted");
-    io.sockets.to(user.room).emit("videoChange", data);
+    io.to(user.room).emit("videoChange", data);
   });
 
   socket.on("disconnect", () => {

@@ -13,7 +13,7 @@ var output = document.getElementById("output");
 var feedback = document.getElementById("feedback");
 var clear = document.getElementById("clear");
 var youtubeUrl = document.getElementById("youtubeUrl");
-var videoBox = document.getElementById("videoBox");
+var videoBox = document.getElementById("video-box");
 
 // Emit events
 btn.addEventListener("click", () => {
