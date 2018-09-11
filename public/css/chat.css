@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css?family=Titillium+Web');
 
 body {
-  padding-top: 70px;
+  padding-top: 63px;
   font-family: 'Titillium Web', sans-serif;
   color: white;
   background-color:gray;
@@ -10,7 +10,8 @@ body {
 
 .main-content {
   background-color: rgb(245, 245, 245);
-  border-radius: 5px;
+  border-radius: 0 0 5 5px;
+  border-top: 2px solid rgb(27, 165, 230);
 }
 
 label {
@@ -79,6 +80,7 @@ h2 {
 
 .single-user {
   padding: 10px 5px;
+  margin-bottom: 5px;
   background-color: rgb(27, 165, 230);
   border-radius: 5px;
   color: white;
