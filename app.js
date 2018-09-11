@@ -72,6 +72,15 @@ io.on("connection", socket => {
     io.to(user.room).emit("videoChange", data);
   });
 
+  // Handle player events
+  socket.on("pause-video", data => {
+    io.to(data.room).emit("pause-video");
+  });
+
+  socket.on("play-video", data => {
+    io.to(data.room).emit("play-video");
+  });
+
   socket.on("disconnect", () => {
     var user = users.removeUser(socket.id);
 

@@ -8,11 +8,16 @@ body {
   background-color:gray;
 }
 
+.main-content {
+  background-color: rgb(245, 245, 245);
+  border-radius: 5px;
+}
+
 label {
   box-sizing: border-box;
   display: block;
   font-family: 'Titillium Web', sans-serif;
-  padding: 10px 20px;
+  font-size: 20px;
 }
 
 h2 {
@@ -21,14 +26,20 @@ h2 {
   color: #575ed8;
 }
 
+.control-buttons {
+  padding: 10px 20px;
+}
+
 #video {
   padding-top: 25px;
+  
 }
 
 #video-box {
   position:relative;
   height:90%;
-  padding-bottom:56.21%
+  padding-bottom:56.21%;
+  box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.07);
 }
 
 #youtubeUrl {
@@ -45,15 +56,36 @@ h2 {
 }
 
 #nomad-chat {
-  max-width: 600px;
-  margin: 30px auto;
+  width: 100%;
+  margin: 25px auto;
   border: 1px solid #ddd;
-  box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.05);
+  box-shadow: 1px 10px 10px rgba(0, 0, 0, 0.07);
   border-radius: 3px;
 }
 
+#users {
+  width: 100%;
+  margin: 25px auto;
+  border: 1px solid #ddd;
+  box-shadow: 1px 10px 10px rgba(0, 0, 0, 0.07);
+  border-radius: 3px;
+  background-color: #f9f9f9;
+}
+
+.user-list {
+  padding: 20px 0px; 
+  text-align: center;
+}
+
+.single-user {
+  padding: 10px 5px;
+  background-color: rgb(27, 165, 230);
+  border-radius: 5px;
+  color: white;
+}
+
 #chat-window {
-  height: 600px;
+  height: 580px;
   overflow: auto;
   background: #f9f9f9;
 }
@@ -72,13 +104,8 @@ h2 {
 }
 
 #output strong {
-  color: #575ed8;
+  color: rgb(27, 165, 230);;
 }
-
-#clear {
-  margin-top: 5px;
-}
-
 
 input {
   padding: 10px 20px;
@@ -106,4 +133,15 @@ button {
 .navbar button {
   padding: 10px;
   margin: 0 30px;
+}
+
+.footer {
+  position: fixed;
+  padding-top: 10px; 
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: rgb(245, 245, 245);
+  color: black;
+  text-align: center;
 }

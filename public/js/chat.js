@@ -1,7 +1,6 @@
 // Get the socketconnection 
 var socket = io();
 
-
 // For development use: 
 // var socket = io("http://localhost:3000");
 
@@ -33,10 +32,9 @@ youtubeUrl.addEventListener("keypress", e => {
   if (e.keyCode == 13) {
     id = getYoutubeId(youtubeUrl.value);
     if (id !== "") {
-      video = "https://www.youtube.com/embed/" + id + "?autoplay=1";
-      socket.emit("videoChange", video);
+      socket.emit("videoChange", id);
     }
-    youtubeUrl.value = id;
+    youtubeUrl.value = "";
   }
 });
 
@@ -67,13 +65,6 @@ socket.on("typing", data => {
   chatWindow.scrollTop = chatWindow.scrollHeight;
 });
 
-socket.on("videoChange", data => {
-  videoBox.innerHTML =
-    '<iframe id="videoFrame" src="' +
-    data +
-    '" style="position:absolute;width:100%;height:100%;left:0" width="641" height="360" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>';
-});
-
 socket.on("connect", function() {
   var params = jQuery.deparam(window.location.search);
 
@@ -99,18 +90,39 @@ socket.on("connect", function() {
 
 socket.on("updateUserList", function(users) {
   console.log(users);
-  var ol = jQuery('<ol></ol>');
-
+  var userList = jQuery('<div class="user-list"></div>');
+  userList.append(jQuery('<label>Online Users</label>'))
   users.forEach(function (user) {
-    ol.append(jQuery('<li></li>').text(user));
+    userList.append(jQuery('<div class="well single-user"></div>').text(user));
   });
 
-  jQuery('#users').html(ol);
+  jQuery('#users').html(userList);
 })
 
 socket.on("disconnect", function() {
   console.log("Disconnected from server");
 });
+
+// ========================================================================
+//                            Handle player events
+// ========================================================================
+
+socket.on("pause-video", function() {
+  player.pauseVideo();
+});
+
+socket.on("play-video", function() {
+  player.playVideo();
+});
+
+socket.on("videoChange", data => {
+  player.loadVideoById(data);
+});
+
+
+// ========================================================================
+//                            Helper Functions
+// ========================================================================
 
 function escapeHtml(unsafe) {
   return unsafe
