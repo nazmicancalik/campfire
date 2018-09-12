@@ -81,6 +81,12 @@ io.on("connection", socket => {
     io.to(data.room).emit("play-video");
   });
 
+  socket.on("seek", data => {
+    var user = users.getUser(socket.id);
+
+    io.to(user.room).emit("seek",data);
+  })
+
   socket.on("disconnect", () => {
     var user = users.removeUser(socket.id);
 

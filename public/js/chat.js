@@ -1,8 +1,8 @@
 // Get the socketconnection 
-var socket = io();
+// var socket = io();
 
 // For development use: 
-// var socket = io("http://localhost:3000");
+var socket = io("http://localhost:3000");
 
 // Query Dom
 var chatWindow = document.getElementById("chat-window");
@@ -119,6 +119,10 @@ socket.on("videoChange", data => {
   player.loadVideoById(data);
 });
 
+socket.on("seek", function(data) {
+  console.log('Seek event grabbed',data.currentTime);
+  player.seekTo(data.currentTime);
+});
 
 // ========================================================================
 //                            Helper Functions

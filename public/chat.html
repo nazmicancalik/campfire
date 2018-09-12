@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="css/chat.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
@@ -17,42 +18,56 @@
       <button class="btn btn-outline-danger my-2 my-sm-0" type="submit" onclick="location.href = 'https://www.google.com';">Close</button>    
   </nav>
   <div class="container-fluid main-content" style="padding-right:25px; padding-left:25px;"> 
+    <div class="content">
       <div class="row">
-        <div class="col-md-1" id="users">
-          <label>Online Users</label>
-        </div>
-        <div class="col-md-7" id="video">
-          <div class="well">
-            <div id="player" class="container"></div>
+          <div class="col-md-1" id="users">
+            <label>Online Users</label>
           </div>
-        </div>
-        <div class="col-md-4" id="chat">
-          <div id="nomad-chat">
-            <div id="chat-window">
-              <div id="output"></div>
-              <div id="feedback"></div>
+          <div class="col-md-7">
+            <div id="video">
+                <div id="player" class="container"></div>
             </div>
-            <input type="text" id="message" placeholder="Enter your message here" autocomplete="off">
-              <div class="control-buttons">
-                <div class="row">
-                  <div class="col-sm-6">
-                      <button id="send" class="btn btn-primary btn-lg" name="btn">Send</button>
-                  </div>
-                  <div class="col-sm-6">
-                      <button id="clear" class="btn btn-danger btn-lg" style="background: #F22613; opacity:0.9;" name="btn">Clear Chat Logs</button>
+          </div>
+          <div class="col-md-4" id="chat">
+            <div id="nomad-chat">
+              <div id="chat-window">
+                <div id="output"></div>
+                <div id="feedback"></div>
+              </div>
+              <input type="text" id="message" placeholder="Enter your message here" autocomplete="off">
+                <div class="chat-control-buttons">
+                  <div class="row">
+                    <div class="col-sm-6">
+                        <button id="send" class="btn btn-primary btn-lg" name="btn">Send</button>
+                    </div>
+                    <div class="col-sm-6">
+                        <button id="clear" class="btn btn-danger btn-lg" style="background: #F22613; opacity:0.9;" name="btn">Clear Chat Logs</button>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-        </div>
+          </div>
+      </div>
     </div>
+    <div class="row player-controls">
+      <div class="player-control-buttons">
+        <button id="play" class="btn btn-default"><i class="fa fa-play"></i></button>
+        <button id="pause" class="btn btn-default"><i class="fa fa-pause"></i></button>
+      </div>
+      <div class="col-sm-11">
+        <div id="seekbar-wrapper">
+            <div id="seekbar"></div>
+        </div>
+        <div id="seekbar-position"></div>
+      </div>
+    </div>  
   </div>
   <div class="footer">
     <label>A friend is someone who gives you total freedom to be yourself - Jim Morrison</label>
   </div>
+  <script type="text/javascript" src="/js/libs/jquery.js"></script>
   <script type="text/javascript" src="/js/player.js"></script>
   <script type="text/javascript" src="/socket.io/socket.io.js"></script>
-  <script type="text/javascript" src="/js/libs/jquery.js"></script>
   <script type="text/javascript" src="/js/libs/moment.js"></script>
   <script type="text/javascript" src="/js/libs/deparam.js"></script>
   <script type="text/javascript" src="/js/chat.js"></script>

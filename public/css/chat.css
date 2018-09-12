@@ -14,6 +14,11 @@ body {
   border-top: 2px solid rgb(27, 165, 230);
 }
 
+.content {
+  margin-top: 25px;
+  padding-bottom: 20px;
+}
+
 label {
   box-sizing: border-box;
   display: block;
@@ -24,23 +29,20 @@ label {
 h2 {
   font-size: 18px;
   padding: 10px 20px;
-  color: #575ed8;
+  color: rgb(27, 165, 230);
 }
 
-.control-buttons {
+.chat-control-buttons {
   padding: 10px 20px;
 }
 
 #video {
-  padding-top: 25px;
-  
-}
-
-#video-box {
-  position:relative;
-  height:90%;
-  padding-bottom:56.21%;
-  box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.07);
+  padding: 10px 0px;
+  overflow: hidden;
+  border: 1px solid #ddd;
+  box-shadow: 1px 10px 10px rgba(0, 0, 0, 0.07);
+  background-color: #f9f9f9;
+  border-radius: 3px;
 }
 
 #youtubeUrl {
@@ -58,7 +60,7 @@ h2 {
 
 #nomad-chat {
   width: 100%;
-  margin: 25px auto;
+  margin: 0px auto;
   border: 1px solid #ddd;
   box-shadow: 1px 10px 10px rgba(0, 0, 0, 0.07);
   border-radius: 3px;
@@ -66,7 +68,7 @@ h2 {
 
 #users {
   width: 100%;
-  margin: 25px auto;
+  margin: 0px auto;
   border: 1px solid #ddd;
   box-shadow: 1px 10px 10px rgba(0, 0, 0, 0.07);
   border-radius: 3px;
@@ -74,7 +76,7 @@ h2 {
 }
 
 .user-list {
-  padding: 20px 0px; 
+  padding: 20px 0px;
   text-align: center;
 }
 
@@ -87,7 +89,8 @@ h2 {
 }
 
 #chat-window {
-  height: 580px;
+  height: 600px;
+  width: 100%;
   overflow: auto;
   background: #f9f9f9;
 }
@@ -110,7 +113,7 @@ h2 {
 }
 
 input {
-  padding: 10px 20px;
+  padding: 15px 20px;
   box-sizing: border-box;
   background: #eee;
   border: 0;
@@ -123,7 +126,6 @@ input {
 }
 
 button {
-  background: #575ed8;
   color: #fff;
   font-size: 18px;
   border: 0;
@@ -137,13 +139,66 @@ button {
   margin: 0 30px;
 }
 
+.player-controls {
+  width: 100%;
+  margin-top: 10px;
+  border: 1px solid #ddd;
+  box-shadow: 1px 10px 10px rgba(0, 0, 0, 0.07);
+  border-radius: 3px;
+  background-color: #f9f9f9;
+  padding: 10px 15px;
+  font-size: 24px;
+}
+
+.player-control-buttons {
+  border-right: 1px solid black;
+  padding-right: 15px; 
+}
+
+.player-control-buttons button {
+  width: 60px;
+}
+
+#play {
+  background-color: rgb(27, 165, 230);
+}
+
+#pause {
+  background-color: red;
+}
+
+#seekbar-wrapper {
+  height: 35px;
+  margin-top: 5px;
+}
+
+#seekbar {
+  position: absolute;
+  width: 100%;
+  top: 20px;
+  border: 1px solid gray;
+}
+
+#seekbar-position {
+  position: absolute;
+  top: 12px;
+  left: 0.5%;
+  width: 18px;
+  height: 18px;
+  background-color: rgb(27, 165, 230);
+  border: 2px solid gray;
+  border-radius: 50%;
+  z-index: 2;
+}
+
 .footer {
   position: fixed;
   padding-top: 10px; 
   left: 0;
   bottom: 0;
   width: 100%;
-  background-color: rgb(245, 245, 245);
-  color: black;
+  /*background-color: rgb(245, 245, 245);*/
+  background-color: rgb(27, 165, 230);
+  color: white;
   text-align: center;
 }
