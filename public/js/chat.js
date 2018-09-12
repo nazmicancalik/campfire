@@ -1,8 +1,8 @@
 // Get the socketconnection 
-// var socket = io();
+var socket = io();
 
 // For development use: 
-var socket = io("http://localhost:3000");
+// var socket = io("http://localhost:3000");
 
 // Query Dom
 var chatWindow = document.getElementById("chat-window");
@@ -73,8 +73,6 @@ socket.on("connect", function() {
       // Send to main page
       alert(err);
       window.location.href = '/';
-    }else {
-      console.log('No error');
     }
   });
 
@@ -89,7 +87,6 @@ socket.on("connect", function() {
 });
 
 socket.on("updateUserList", function(users) {
-  console.log(users);
   var userList = jQuery('<div class="user-list"></div>');
   userList.append(jQuery('<label>Online Users</label>'))
   users.forEach(function (user) {
@@ -120,7 +117,6 @@ socket.on("videoChange", data => {
 });
 
 socket.on("seek", function(data) {
-  console.log('Seek event grabbed',data.currentTime);
   player.seekTo(data.currentTime);
 });
 
