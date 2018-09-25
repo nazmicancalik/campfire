@@ -7,12 +7,13 @@ This is a fun app that I created during a leisure time. Don't hesitate to contri
 ## TODO
 
 * [x] Chat rooms
-* [ ] Styling change, firewatch theme.
+* [x] Styling change, firewatch theme.
 * [x] Add Timestamp to messages
 * [x] Online users
-* [ ] Youtube Concurrency
+* [x] Youtube Concurrency
 * [x] Close autocomplete in message box
 * [x] Autofocus on the message box
+* [ ] Webcam feature
 
 ## Contribution Guide
 
